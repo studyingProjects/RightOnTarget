@@ -21,48 +21,50 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupNewGame()
+    }
+    
+    private func setupNewGame() {
+        self.number = Int.random(in: 1...50)
+        self.label.text = String(self.number)
+        self.round = 1
     }
     
     @IBAction func checkNumber() {
-        if self.round == 0 {
-            self.number = Int.random(in: 1...50)
-            self.label.text = String(self.number)
-            self.round = 1
+        
+        let sliderValue = Int(self.slider.value.rounded())
+        if self.number > sliderValue {
+            self.points = self.points + 50 - self.number + sliderValue
+        } else if self.number < sliderValue {
+            self.points = self.points + 50 - sliderValue + self.number
         } else {
-            let sliderValue = Int(self.slider.value.rounded())
-            if self.number > sliderValue {
-                self.points = self.points + 50 - self.number + sliderValue
-            } else if self.number < sliderValue {
-                self.points = self.points + 50 - sliderValue + self.number
-            } else {
-                self.points += 50
-            }
-            
-            self.round += 1
-            
-            if round == 6 {
-                label.text = "You earn \(self.points) points!"
-                
-                let alert = UIAlertController(
-                    title: "Game over",
-                    message: "You earn \(self.points) points",
-                    preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "Play again!", style: .default, handler: nil))
-                
-                self.present(alert, animated: true, completion: nil)
-                self.points = 0
-                self.round = 0
-                return
-            }
-            
-            self.number = Int.random(in: 1...50)
-            label.text = String(self.number)
-            
+            self.points += 50
         }
-    
+        
+        self.round += 1
+        
+        if round == 6 {
+            
+            let alert = UIAlertController(
+                title: "Game over",
+                message: "You earn \(self.points) points",
+                preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Play again!", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            self.points = 0
+            setupNewGame()
+            return
+        }
+        
+        self.number = Int.random(in: 1...50)
+        label.text = String(self.number)
+        
     }
+    
+    
 
 
 }
