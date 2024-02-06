@@ -19,10 +19,37 @@ class ViewController: UIViewController {
     // сумма очков за раунд
     var points: Int = 0
     
+    lazy var secondViewController: SecondViewController = getSecondViewController()
+    
+    override func loadView() {
+        super.loadView()
+        print("loadView")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("viewDidLoad")
         setupNewGame()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("ViewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("ViewDidDisappear")
     }
     
     private func setupNewGame() {
@@ -63,8 +90,19 @@ class ViewController: UIViewController {
         label.text = String(self.number)
         
     }
+
+    private func getSecondViewController() -> SecondViewController {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let secondViewController = mainStoryboard.instantiateViewController(withIdentifier: "SecondViewController")
+        
+        return secondViewController as! SecondViewController
+    }
     
+//    @IBAction func showNextScreen() {
+//        self.present(secondViewController, animated: true, completion: nil)
+//    }
     
+
 
 
 }
