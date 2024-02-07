@@ -10,72 +10,52 @@ import Foundation
 protocol GameProtocol {
     // Количество заработанных очков
     var score: Int { get }
-    // Загаданное значение
-    var currentSecretValue: Int { get }
+    var secretValueGenerator: RandomizerProtocol { get }
+    var currentGameRound: RoundProtocol { get }
     // Проверяет, закончена ли игра
     var isGameEnded: Bool { get }
     // Начинает новую игру и сразу стартует первый раунд
     func restartGame()
     // Начинает новый раунд (обновляет загаданное число)
     func startNewRound()
-    // Сравнивает переданное значение с загаданным и начисляет очки
-    func calculateScore(with value: Int)
 }
 
 class Game: GameProtocol {
-    var score: Int = 0
-    // Минимальное загаданное значение
-    private var minSecretValue: Int
-    // Максимальное загаданное значение
-    private var maxSecretValue: Int
-    var currentSecretValue: Int = 0
-    // Количество раундов
-    private var lastRound: Int
-    private var currentRound: Int = 1
+    var secretValueGenerator: RandomizerProtocol
+    var currentGameRound: RoundProtocol
+    private var rounds: [RoundProtocol] = []
+    private var totalRounds: Int = 0
     var isGameEnded: Bool {
-        if currentRound >= lastRound {
+        if totalRounds == rounds.count {
             return true
         } else {
             return false
         }
     }
-    
-    init?(startValue: Int, endValue: Int, rounds: Int) {
-        // Стартовое значение для выбора случайного числа не может быть больше конечного
-        guard startValue <= endValue else {
-            return nil
+    var score: Int {
+        var totalScore: Int = 0
+        for round in rounds {
+            totalScore += round.score
         }
-        minSecretValue = startValue
-        maxSecretValue = endValue
-        lastRound = rounds
-        currentSecretValue = self.getNewSecretValue()
+        return totalScore
+    }
+    
+    init(randomizer: RandomizerProtocol, rounds: Int) {
+        secretValueGenerator = randomizer
+        totalRounds = rounds
+        currentGameRound = Round(currentSecretValue: secretValueGenerator.getRandomValue())
+        self.rounds.append(currentGameRound)
     }
     
     func restartGame() {
-        currentRound = 0
-        score = 0
+        rounds = []
         startNewRound()
     }
     
     func startNewRound() {
-        currentSecretValue = self.getNewSecretValue()
-        currentRound += 1
+        let newSecretValue = secretValueGenerator.getRandomValue()
+        currentGameRound = Round(currentSecretValue: newSecretValue)
+        rounds.append(currentGameRound)
     }
-    
-    // Загадать и вернуть новое случайное значение 
-    private func getNewSecretValue() -> Int {
-        (minSecretValue...maxSecretValue).randomElement()!
-    }
-    
-    func calculateScore(with value: Int) {
-        if value > currentSecretValue {
-            score += 50 - value + currentSecretValue
-        } else if value < currentSecretValue {
-            score += 50 - currentSecretValue + value
-        } else {
-            score += 50
-        }
-    }
-    
-    
+
 }

@@ -20,8 +20,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gameModel = Game(startValue: 1, endValue: 50, rounds: 5)
-        updateLabelText(with: String(gameModel.currentSecretValue))
+        let randomizer = Randomizer(min: 1, max: 50)!
+        gameModel = Game(randomizer: randomizer, rounds: 5)
+        updateLabelText(with: String(gameModel.currentGameRound.currentSecretValue))
         print("viewDidLoad")
     }
     
@@ -47,14 +48,14 @@ class ViewController: UIViewController {
     // MARK: - View - Model interaction
     @IBAction func checkNumber() {
         let currentUserValue = Int(slider.value.rounded())
-        gameModel.calculateScore(with: currentUserValue)
+        gameModel.currentGameRound.calculateScore(with: currentUserValue)
         if gameModel.isGameEnded {
             showAlertWith(score: gameModel.score)
             gameModel.restartGame()
         } else {
             gameModel.startNewRound()
         }
-        updateLabelText(with: String(gameModel.currentSecretValue))
+        updateLabelText(with: String(gameModel.currentGameRound.currentSecretValue))
     }
     // MARK: - View updating
     func updateLabelText(with newText: String) {
