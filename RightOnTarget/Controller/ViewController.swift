@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     // MARK: - View - Model interaction
     @IBAction func checkNumber() {
         let currentUserValue = Int(slider.value.rounded())
-        gameModel.currentGameRound.calculateScore(with: currentUserValue)
+        gameModel.currentGameRound.calculateScore(with: currentUserValue, gameOption: .Slider)
         if gameModel.isGameEnded {
             showAlertWith(score: gameModel.score)
             gameModel.restartGame()

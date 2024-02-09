@@ -151,63 +151,71 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ALD-ab-ZFn">
                                 <rect key="frame" x="98" y="182" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0015832295179999999" green="0.69012552500000002" blue="0.42076003550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="8Yq-4M-dUn"/>
                                     <constraint firstAttribute="height" constant="50" id="weu-ZY-weO"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Option #1">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
+                                    <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="optionHasChosen:" destination="c7U-Nx-nwx" eventType="touchUpInside" id="npz-XA-xwV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yee-Gc-rlc">
                                 <rect key="frame" x="278" y="182" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0015832295179999999" green="0.69012552500000002" blue="0.42076003550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Yky-Ku-Uhk"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="lVk-mN-ltU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Option #2">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
+                                    <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="optionHasChosen:" destination="c7U-Nx-nwx" eventType="touchUpInside" id="wqt-B9-d9b"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB2-rt-qXa">
                                 <rect key="frame" x="458" y="182" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0015832295179999999" green="0.69012552500000002" blue="0.42076003550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="aPj-A7-95j"/>
                                     <constraint firstAttribute="height" constant="50" id="mav-Mk-v5n"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Option #3">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
+                                    <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="optionHasChosen:" destination="c7U-Nx-nwx" eventType="touchUpInside" id="5B4-kA-VgD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAh-a9-hnF">
                                 <rect key="frame" x="638" y="182" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0015832295179999999" green="0.69012552500000002" blue="0.42076003550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="C2M-PV-Zmx"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="HL3-VM-8CI"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Option #4">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </backgroundConfiguration>
+                                    <backgroundConfiguration key="background"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="optionHasChosen:" destination="c7U-Nx-nwx" eventType="touchUpInside" id="ZwW-r6-tKU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ntC-KI-1VX"/>
-                        <color key="backgroundColor" red="0.47450977560000002" green="0.76862752440000004" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.0" green="0.93013010620207837" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mA8-XW-kmM" firstAttribute="centerX" secondItem="sUW-4K-RkD" secondAttribute="centerX" id="3iS-Jg-sFw"/>
                             <constraint firstItem="ALD-ab-ZFn" firstAttribute="leading" secondItem="ntC-KI-1VX" secondAttribute="leading" constant="50" id="6gs-RQ-4jV"/>
@@ -224,6 +232,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LWN-K0-53Z"/>
+                    <connections>
+                        <outlet property="hexValueOfColor" destination="mA8-XW-kmM" id="nws-Dk-BkW"/>
+                        <outlet property="option1" destination="ALD-ab-ZFn" id="Bek-iU-saE"/>
+                        <outlet property="option2" destination="yee-Gc-rlc" id="EQV-aG-1jt"/>
+                        <outlet property="option3" destination="MB2-rt-qXa" id="Udw-ET-Keu"/>
+                        <outlet property="option4" destination="EAh-a9-hnF" id="RYv-Lc-vuI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZ0-pc-MpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

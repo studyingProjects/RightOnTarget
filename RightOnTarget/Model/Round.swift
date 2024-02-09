@@ -12,7 +12,7 @@ protocol RoundProtocol {
     var currentSecretValue: Int { get }
     var score: Int { get }
     // Сравнивает переданное значение с загаданным и начисляет очки
-    func calculateScore(with value: Int)
+    func calculateScore(with value: Int, gameOption: GameOption)
 }
 
 class Round: RoundProtocol {
@@ -24,14 +24,22 @@ class Round: RoundProtocol {
         self.currentSecretValue = currentSecretValue
     }
     
-    func calculateScore(with value: Int) {
-        if value > currentSecretValue {
-            score = 50 - value + currentSecretValue
-        } else if value < currentSecretValue {
-            score = 50 - currentSecretValue + value
-        } else {
-            score = 50
+    func calculateScore(with value: Int, gameOption: GameOption) {
+        switch gameOption {
+        case .Slider:
+            if value > currentSecretValue {
+                score = 50 - value + currentSecretValue
+            } else if value < currentSecretValue {
+                score = 50 - currentSecretValue + value
+            } else {
+                score = 50
+            }
+        case .Colors:
+            if value == currentSecretValue {
+                score += 1
+            }
         }
+        
     }
     
 }

@@ -20,6 +20,11 @@ protocol GameProtocol {
     func startNewRound()
 }
 
+enum GameOption {
+    case Slider
+    case Colors
+}
+
 class Game: GameProtocol {
     var secretValueGenerator: RandomizerProtocol
     var currentGameRound: RoundProtocol
